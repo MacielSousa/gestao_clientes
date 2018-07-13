@@ -11,7 +11,7 @@ def persons_list(request):
     return render(request, 'person.html', {'persons': persons})
 @login_required
 def persons_new(request):
-    form = PersonForm(request.POST, request.FILES, None)
+    form = PersonForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
         form.save()
